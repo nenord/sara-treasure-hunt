@@ -4,12 +4,14 @@
 	import Hunting from './Hunting.svelte'
 	import Header from './Header.svelte'
 	import Button from './Button.svelte';
+	import langs from "./Store/lang-store.js";
 
 	let howMany = null;
 	let qList =[];
 	let checkCounter = 0;
 	let hunting = false;
 	let disabled = true;
+	let lang = 1;
 
 	function handleMessage(event) {
 		howMany = event.detail.number;
@@ -39,9 +41,19 @@
 	function setToHunt() {
 		hunting=true;
 	}
+
+	export let langSetter = 0;
+	let storeContent, langSetting;
+
+	const unsubscribe = langs.subscribe( items => {
+		storeContent = items[lang];
+	});
 </script>
 
 <style>
+	.main-text {
+		font-family: "Roboto Slab", serif;
+	}
 	.mv-down {
 		margin-top:70px;
 		text-align: center;
@@ -51,23 +63,22 @@
 	}
 </style>
 
-<Header />
+<Header langSett={storeContent}/>
 <div class="mv-down">
 	<div class="center-me">
 		{#if !howMany}
-		<p>
-			How many clues do you want?
-		</p>
-		<HowMany on:message={handleMessage}/>
+		<h3 class="main-text">{storeContent.howmany}</h3>
+
+		<HowMany langSett={storeContent} on:message={handleMessage}/>
 		{:else}
-			<Button on:click={resetAll} caption="Reset Game" />
+			<Button on:click={resetAll} caption={storeContent.reset} />
 			<Button on:click={setToHunt} {disabled}
-							caption="Start the hunt!" />
+							caption={storeContent.start} />
 			{#if hunting}
-				<Hunting listOfQs={qList}/>
+				<Hunting langSett={storeContent} listOfQs={qList}/>
 			{:else}
 				{#each qList as qItem (qItem.id)}
-					<Questions ID={qItem.id} on:message={addAnItem}/>
+					<Questions langSett={storeContent} ID={qItem.id} on:message={addAnItem}/>
 				{/each}
 			{/if}
 		{/if}

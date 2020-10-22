@@ -4,6 +4,7 @@
 	const dispatch = createEventDispatcher();
 
 	export let ID;
+	export let langSett;
 	let clue;
 	let proof = '';
 	let complete = false;
@@ -17,7 +18,7 @@
 			itemProof: proof
 		});
 		complete = true;
-		insertText = ' Added!'
+		insertText = langSett.key + ' ' + proof.toString() + '!';
 	}
 </script>
 
@@ -26,14 +27,20 @@
 		color: gray;
 	}
 
+	.num-input {
+		border-radius: 5px;
+	}
+
+	.main-text {
+		font-family: "Roboto Slab", serif;
+	}
 </style>
 
-<h4>Input clue and proof {ID}!<span id="completion">{insertText}</span></h4>
-<label>What is your clue?
-	<input bind:value={clue} disabled={complete}>
-</label>
-<label>
-	<Button on:click={addItem} caption="Add this clue!"
+<h3 class="main-text">{langSett.clues} {ID}<span id="completion">{insertText}</span></h3>
+<h4 class="main-text">{langSett.clueDesc}
+	<input class="num-input" bind:value={clue} disabled={complete}>
+</h4>
+<h4 class="main-text">
+	<Button on:click={addItem} caption={langSett.add}
 					mode="outline" disabled={complete} />
-	 Proof that clue was solved: {proof}
-</label>
+</h4>

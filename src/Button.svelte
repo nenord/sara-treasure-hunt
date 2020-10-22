@@ -7,9 +7,9 @@
 <style>
   button,
   a {
-    font: inherit;
-    border: 1px solid #cf0056;
-    background: #cf0056;
+    font-family: "Roboto Slab", serif;
+    border: 1px solid #622569;
+    background: #622569;
     padding: 0.5rem 1rem;
     color: white;
     border-radius: 5px;
@@ -26,8 +26,8 @@
   button:active,
   a:hover,
   a:active {
-    background: #e40763;
-    border-color: #e40763;
+    background: #6b5b95;
+    border-color: #6b5b95;
     box-shadow: 1px 1px 8px rgba(77, 51, 51, 0.26);
   }
 
@@ -36,7 +36,7 @@
   button:disabled:active {
     background: #ccc;
     border-color: #ccc;
-    color: #959595;
+    color: #622569;
     box-shadow: none;
     cursor: not-allowed;
   }
@@ -54,13 +54,13 @@
 
   .outline {
     background: transparent;
-    color: #cf0056;
+    color: #622569;
     box-shadow: none;
   }
 
   .outline:hover,
   .outline:active {
-    background: #ffc7de;
+    background: #b8a9c9;
     box-shadow: none;
   }
 

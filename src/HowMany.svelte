@@ -12,6 +12,7 @@
 
 	let selected = questions[2];
 	let showSelected = false;
+	export let langSett;
 
 	function handleSubmit() {
 		dispatch('message', {
@@ -20,8 +21,14 @@
 	}
 </script>
 
+<style>
+	.num-input {
+		border-radius: 5px;
+	}
+</style>
+
 <form on:submit|preventDefault={handleSubmit}>
-	<select bind:value={selected}>
+	<select class="num-input" bind:value={selected}>
 		{#each questions as question}
 			<option value={question}>
 				{question.number}
@@ -29,5 +36,5 @@
 		{/each}
 	</select>
 
-	<Button caption="Submit" />
+	<Button caption={langSett.submit} />
 </form>

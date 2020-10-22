@@ -1,3 +1,7 @@
+<script>
+  export let langSett;
+</script>
+
 <style>
   header {
     position: fixed;
@@ -5,7 +9,7 @@
     top: 0;
     left: 0;
     height: 4rem;
-    background: #cf0056;
+    background: #622569;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,5 +24,5 @@
 </style>
 
 <header>
-  <h1>Sara's treasure hunt</h1>
+  <h1>{langSett.title}</h1>
 </header>

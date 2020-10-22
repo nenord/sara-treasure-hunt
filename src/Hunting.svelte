@@ -3,6 +3,7 @@
 	import { fade, fly } from 'svelte/transition';
 
 	export let listOfQs = [];
+	export let langSett;
 	let endGameCounter = 0;
 	let gameFinished = false;
 	let i = 0;
@@ -15,17 +16,23 @@
 	}
 </script>
 
+<style>
+	.main-text {
+		font-family: "Roboto Slab", serif;
+	}
+</style>
+
 {#if !gameFinished}
-	<h4 in:fade="{{ duration: 1000 }}">
-		What is the number for this clue?
+	<h4 class="main-text" in:fade="{{ duration: 1000 }}">
+		{langSett.number}
 	</h4>
 	{#key i}
 		<div in:fly="{{ x: 200, duration: 1000 }}">
-			<Answer qItem={listOfQs[i]} j={i} on:message={whenToEnd} />
+			<Answer langSett={langSett} qItem={listOfQs[i]} j={i} on:message={whenToEnd} />
 		</div>
 	{/key}
 {:else}
-	<h4 in:fade="{{ duration: 1000 }}">
-	Well done!
-	</h4>
+	<h3 class="main-text"in:fade="{{ duration: 1000 }}">
+		{langSett.well}
+	</h3>
 {/if}

@@ -17,22 +17,22 @@
 </script>
 
 <style>
-	.main-text {
-		font-family: "Roboto Slab", serif;
+	* {
+		font-family: inherit;
 	}
 </style>
 
 {#if !gameFinished}
-	<h4 class="main-text" in:fade="{{ duration: 500 }}">
+	<h4 in:fade="{{ duration: 500 }}">
 		{langSett.number}
 	</h4>
 	{#key i}
-		<div in:fly="{{ x: 200, duration: 500, delay: 501}}" out:fly="{{ x: -200, duration: 500 }}">
+		<div in:fly="{{ x: 200, duration: 500, delay: 501}}" out:fly="{{ x: -200, duration: 450 }}">
 			<Answer langSett={langSett} qItem={listOfQs[i]} j={i} on:message={whenToEnd} />
 		</div>
 	{/key}
 {:else}
-	<h3 class="main-text"in:fade="{{ duration: 500, delay: 501}}">
+	<h3 in:fade="{{ duration: 500, delay: 501}}">
 		{langSett.well}
 	</h3>
 {/if}

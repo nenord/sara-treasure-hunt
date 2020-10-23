@@ -6,9 +6,8 @@
 	export let ID;
 	export let langSett;
 	let clue;
-	let proof = '';
+	let proof = null;
 	let complete = false;
-	let insertText = '';
 
 	function addItem() {
 		proof = Math.floor(Math.random() * 50);
@@ -18,12 +17,12 @@
 			itemProof: proof
 		});
 		complete = true;
-		insertText = langSett.key + ' ' + proof.toString() + '!';
+		//insertText = langSett.key + proof.toString() + '!';
 	}
 </script>
 
 <style>
-	#completion{
+	.completion{
 		color: gray;
 	}
 
@@ -31,16 +30,21 @@
 		border-radius: 5px;
 	}
 
-	.main-text {
-		font-family: "Roboto Slab", serif;
+	* {
+		font-family: inherit;
 	}
 </style>
 
-<h3 class="main-text">{langSett.clues} {ID}<span id="completion">{insertText}</span></h3>
-<h4 class="main-text">{langSett.clueDesc}
+<h3>{langSett.clues} {ID}
+	{#if proof}
+		<span class="completion">{langSett.key}</span>
+		<span class="completion">{proof}</span>
+	{/if}
+</h3>
+<h4>{langSett.clueDesc}
 	<input class="num-input" bind:value={clue} disabled={complete}>
 </h4>
-<h4 class="main-text">
+<h4>
 	<Button on:click={addItem} caption={langSett.add}
 					mode="outline" disabled={complete} />
 </h4>

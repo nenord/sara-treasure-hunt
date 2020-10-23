@@ -10,11 +10,11 @@ const langs = writable([
     clues: 'Clue number ',
     clueDesc: 'What is your clue?',
     add: 'Add this clue',
-    key: ' - Key:',
+    key: ' | Answer | ',
     number: 'What is the number for this clue?',
     next: 'Next',
     well: 'Well done!',
-    lng: 'Language',
+    lng: 'LANG',
     inst: 'How to play',
     howTo: 'Instructions on how to play the game.'
   },
@@ -27,11 +27,11 @@ const langs = writable([
     clues: 'Zagonetka broj ',
     clueDesc: 'Upiši zagonetku',
     add: 'Dodaj zagonetku',
-    key: ' - Broj:',
+    key: ' | Odgovor | ',
     number: 'Upiši broj zagonetke!',
     next: 'Sljedeće',
     well: 'Bravo, pravi si istraživač!',
-    lng: 'Jezik',
+    lng: 'JEZIK',
     inst: 'Kako igrati',
     howTo: 'Upute kako igrati ovu igru.'
   }

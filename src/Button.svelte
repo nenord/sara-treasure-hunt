@@ -5,9 +5,12 @@
 </script>
 
 <style>
+  * {
+    font-family: inherit;
+  }
+
   button,
   a {
-    font-family: "Roboto Slab", serif;
     border: 1px solid #622569;
     background: #622569;
     padding: 0.5rem 1rem;

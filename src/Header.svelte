@@ -16,6 +16,10 @@
 </script>
 
 <style>
+  * {
+    font-family: inherit;
+  }
+  
   header {
     position: fixed;
     width: 100%;
@@ -31,7 +35,6 @@
 
   h1 {
     color: white;
-    font-family: "Roboto Slab", serif;
     margin-left: 10px;
   }
 
@@ -42,7 +45,6 @@
 
   #lang-show {
     color: white;
-    font-family: "Roboto Slab", serif;
   }
 
 </style>

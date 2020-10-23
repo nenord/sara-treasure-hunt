@@ -22,6 +22,9 @@
 </script>
 
 <style>
+	* {
+		font-family: inherit;
+	}
 	.num-input {
 		border-radius: 5px;
 	}

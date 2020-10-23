@@ -5,7 +5,7 @@
 	import Header from './Header.svelte'
 	import Button from './Button.svelte';
 	import langs from "./Store/lang-store.js";
-	import { slide } from 'svelte/transition';
+	import { slide, fade } from 'svelte/transition';
 
 	let howMany = null;
 	let qList =[];
@@ -15,6 +15,7 @@
 	let lang = 0;
 	let storeContent;
 	let showInsrt = false;
+	let resetted = false;
 
 	function handleMessage(event) {
 		howMany = event.detail.number;
@@ -39,6 +40,7 @@
 		checkCounter = 0;
 		hunting=false;
 		disabled=true;
+		resetted = true;
 	}
 
 	function setToHunt() {
@@ -59,9 +61,10 @@
 </script>
 
 <style>
-	.main-text {
-		font-family: "Roboto Slab", serif;
+	* {
+	  font-family: "Roboto Slab", serif;
 	}
+	
 	.mv-down {
 		margin-top:70px;
 		text-align: center;
@@ -77,25 +80,29 @@
 <div class="mv-down">
 	<div class="center-me">
 		{#if !howMany}
+		<div transition:fade={{ duration: 10, delay: 501 }}>
 			<h3 class="main-text">{storeContent.howmany}</h3>
 			<HowMany langSett={storeContent} on:message={handleMessage}/>
 			<br>
 			<Button on:click={() => showInsrt = !showInsrt} caption={storeContent.inst}
 						mode="outline" />
 			{#if showInsrt}
-				<p transition:slide>{storeContent.howTo}</p>
+				<p transition:slide={{ duration: 500 }}>{storeContent.howTo}</p>
 			{/if}
+		</div>
 		{:else}
-			<Button on:click={resetAll} caption={storeContent.reset} />
-			<Button on:click={setToHunt} {disabled}
-							caption={storeContent.start} />
-			{#if hunting}
-				<Hunting langSett={storeContent} listOfQs={qList}/>
-			{:else}
-				{#each qList as qItem (qItem.id)}
-					<Questions langSett={storeContent} ID={qItem.id} on:message={addAnItem}/>
-				{/each}
-			{/if}
+			<div in:fade={{ duration: 100, delay: 550 }}>
+				<Button on:click={resetAll} caption={storeContent.reset} />
+				<Button on:click={setToHunt} {disabled}
+								caption={storeContent.start} />
+				{#if hunting}
+					<Hunting langSett={storeContent} listOfQs={qList}/>
+				{:else}
+					{#each qList as qItem (qItem.id)}
+						<Questions langSett={storeContent} ID={qItem.id} on:message={addAnItem}/>
+					{/each}
+				{/if}
+			</div>
 		{/if}
 	</div>
 </div>

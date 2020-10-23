@@ -5,13 +5,16 @@
 	import Header from './Header.svelte'
 	import Button from './Button.svelte';
 	import langs from "./Store/lang-store.js";
+	import { slide } from 'svelte/transition';
 
 	let howMany = null;
 	let qList =[];
 	let checkCounter = 0;
 	let hunting = false;
 	let disabled = true;
-	let lang = 1;
+	let lang = 0;
+	let storeContent;
+	let showInsrt = false;
 
 	function handleMessage(event) {
 		howMany = event.detail.number;
@@ -40,10 +43,15 @@
 
 	function setToHunt() {
 		hunting=true;
+		disabled=true;
 	}
 
-	export let langSetter = 0;
-	let storeContent, langSetting;
+	function changeLang(event) {
+		lang = event.detail.lang;
+		const unsubscribe = langs.subscribe( items => {
+			storeContent = items[lang];
+		});
+	}
 
 	const unsubscribe = langs.subscribe( items => {
 		storeContent = items[lang];
@@ -61,15 +69,22 @@
 	.center-me {
 		display: inline-block;
 	}
+
 </style>
 
-<Header langSett={storeContent}/>
+<Header langSett={storeContent} lang={lang} on:message={changeLang}/>
+
 <div class="mv-down">
 	<div class="center-me">
 		{#if !howMany}
-		<h3 class="main-text">{storeContent.howmany}</h3>
-
-		<HowMany langSett={storeContent} on:message={handleMessage}/>
+			<h3 class="main-text">{storeContent.howmany}</h3>
+			<HowMany langSett={storeContent} on:message={handleMessage}/>
+			<br>
+			<Button on:click={() => showInsrt = !showInsrt} caption={storeContent.inst}
+						mode="outline" />
+			{#if showInsrt}
+				<p transition:slide>{storeContent.howTo}</p>
+			{/if}
 		{:else}
 			<Button on:click={resetAll} caption={storeContent.reset} />
 			<Button on:click={setToHunt} {disabled}

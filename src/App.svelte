@@ -64,7 +64,7 @@
 	* {
 	  font-family: "Roboto Slab", serif;
 	}
-	
+
 	.mv-down {
 		margin-top:70px;
 		text-align: center;
@@ -87,7 +87,11 @@
 			<Button on:click={() => showInsrt = !showInsrt} caption={storeContent.inst}
 						mode="outline" />
 			{#if showInsrt}
-				<p transition:slide={{ duration: 500 }}>{storeContent.howTo}</p>
+				<div transition:slide={{ duration: 500 }}>
+					{#each storeContent.howTo as howToItem}
+						<p>{howToItem}</p>
+					{/each}
+				</div>
 			{/if}
 		</div>
 		{:else}

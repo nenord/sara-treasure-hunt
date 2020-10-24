@@ -16,7 +16,10 @@ const langs = writable([
     well: 'Well done!',
     lng: 'LANG',
     inst: 'How to play',
-    howTo: 'Instructions on how to play the game.'
+    howTo: ['Instructions on how to play the game.',
+      'More instructions',
+      'And some more'
+    ]
   },
   {
     title: "Lov na blago",
@@ -33,7 +36,10 @@ const langs = writable([
     well: 'Bravo, pravi si istraživač!',
     lng: 'JEZIK',
     inst: 'Kako igrati',
-    howTo: 'Upute kako igrati ovu igru.'
+    howTo: ['Upute kako igrati ovu igru.',
+      'Još uputa kako igrat',
+      'I još malo uputa kak igrat'
+    ]
   }
 ]);
 

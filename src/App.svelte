@@ -4,6 +4,7 @@
 	import Hunting from './Hunting.svelte'
 	import Header from './Header.svelte'
 	import Button from './Button.svelte';
+	import HowToPlay from './HowToPlay.svelte';
 	import langs from "./Store/lang-store.js";
 	import { slide, fade } from 'svelte/transition';
 
@@ -73,12 +74,6 @@
 		display: inline-block;
 	}
 
-	.gameInstr {
-		text-align: justify;
-		color: gray;
-		margin-left: 10%;
-	}
-
 </style>
 
 <Header langSett={storeContent} lang={lang} on:message={changeLang}/>
@@ -94,9 +89,7 @@
 						mode="outline" />
 			{#if showInsrt}
 				<div transition:slide={{ duration: 500 }}>
-					{#each storeContent.howTo as howToItem}
-						<p class="gameInstr">{howToItem}</p>
-					{/each}
+					<HowToPlay langSett={storeContent} />
 				</div>
 			{/if}
 		</div>

@@ -19,7 +19,7 @@
   * {
     font-family: inherit;
   }
-  
+
   header {
     position: fixed;
     width: 100%;
@@ -51,13 +51,11 @@
 
 <header>
   <h1>{langSett.title}</h1>
-  <label id="lang-show">{langSett.lng}
-    <select class="num-input" bind:value={lang}>
-    	{#each languages as language}
-    		<option value={language.id}>
-    			{language.language}
-    		</option>
-    	{/each}
-    </select>
-  </label>
+  <select class="num-input" bind:value={lang}>
+    {#each languages as language}
+    	<option value={language.id}>
+    		{language.language}
+    	</option>
+    {/each}
+  </select>
 </header>

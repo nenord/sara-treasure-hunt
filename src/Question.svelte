@@ -27,6 +27,7 @@
 		}
 		else {
 			inputStyle = "wrong";
+			clue = '';
 		}
 	}
 </script>
@@ -59,7 +60,7 @@
 </h3>
 <h4>{langSett.clueDesc}
 	<input class={inputStyle} bind:value={clue} disabled={complete}
-	placeholder="Cannot be empty!">
+	placeholder={langSett.cannotBe}>
 </h4>
 <h4>
 	<Button on:click={addItem} caption={langSett.add}

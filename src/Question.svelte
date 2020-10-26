@@ -2,22 +2,32 @@
 	import { createEventDispatcher } from 'svelte';
 	import Button from './Button.svelte';
 	const dispatch = createEventDispatcher();
+	import { isEmpty } from "./validation.js";
 
 	export let ID;
 	export let langSett;
-	let clue;
+	let clue = '';
 	let proof = null;
 	let complete = false;
+	let inputStyle = "clue-input";
+	let inputIsValid = false;
+
+	$: inputIsValid = !isEmpty(clue);
 
 	function addItem() {
-		proof = Math.floor(Math.random() * 50);
-		dispatch('message', {
-			ident: ID,
-			itemClue: clue,
-			itemProof: proof
-		});
-		complete = true;
-		//insertText = langSett.key + proof.toString() + '!';
+		if (inputIsValid) {
+			proof = Math.floor(Math.random() * 50);
+			dispatch('message', {
+				ident: ID,
+				itemClue: clue,
+				itemProof: proof
+			});
+			complete = true;
+			inputStyle = "clue-input";
+		}
+		else {
+			inputStyle = "wrong";
+		}
 	}
 </script>
 
@@ -26,12 +36,18 @@
 		color: gray;
 	}
 
-	.num-input {
+	.clue-input {
 		border-radius: 5px;
 	}
 
 	* {
 		font-family: inherit;
+	}
+
+	.wrong {
+		border-radius: 5px;
+		border-color: #d64161;
+		border-width: 2px;
 	}
 </style>
 
@@ -42,7 +58,8 @@
 	{/if}
 </h3>
 <h4>{langSett.clueDesc}
-	<input class="num-input" bind:value={clue} disabled={complete}>
+	<input class={inputStyle} bind:value={clue} disabled={complete}
+	placeholder="Cannot be empty!">
 </h4>
 <h4>
 	<Button on:click={addItem} caption={langSett.add}

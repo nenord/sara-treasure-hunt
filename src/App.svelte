@@ -73,6 +73,12 @@
 		display: inline-block;
 	}
 
+	.gameInstr {
+		text-align: justify;
+		color: gray;
+		margin-left: 10%;
+	}
+
 </style>
 
 <Header langSett={storeContent} lang={lang} on:message={changeLang}/>
@@ -89,7 +95,7 @@
 			{#if showInsrt}
 				<div transition:slide={{ duration: 500 }}>
 					{#each storeContent.howTo as howToItem}
-						<p>{howToItem}</p>
+						<p class="gameInstr">{howToItem}</p>
 					{/each}
 				</div>
 			{/if}

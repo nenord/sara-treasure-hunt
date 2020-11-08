@@ -22,6 +22,17 @@
     text-align: center;
   }
 
+  li {
+    margin-top: 10px;
+  }
+
+  @media only screen and (min-width: 700px) {
+    .sub-div {
+      max-width: 50%;
+    }
+  }
+
+
 </style>
 
 <div class="main-cont">
@@ -33,14 +44,18 @@
     </div>
     <div class="sub-div">
       <h4>{langSett.howTo2}</h4>
+      <ol>
       {#each langSett.howTo3 as howToItem}
-        <p>{howToItem}</p>
+        <li>{howToItem}</li>
       {/each}
+      </ol>
     </div>
     <div class="sub-div">
       <h4>{langSett.howTo4}</h4>
-      {#each langSett.howTo5 as howToItem}
-        <p>{howToItem}</p>
-      {/each}
+      <ol>
+        {#each langSett.howTo5 as howToItem}
+          <li>{howToItem}</li>
+        {/each}
+      </ol>
     </div>
 </div>

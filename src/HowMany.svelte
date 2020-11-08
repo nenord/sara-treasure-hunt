@@ -10,7 +10,7 @@
 		{ id: 5, number: 5 }
 	];
 
-	let selected = questions[2];
+	let selected = questions[0];
 	let showSelected = false;
 	export let langSett;
 

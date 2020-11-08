@@ -63,7 +63,7 @@
 
 <style>
 	* {
-	  font-family: "Roboto Slab", serif;
+	  font-family: "Roboto", sans-serif;
 	}
 
 	.mv-down {

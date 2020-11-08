@@ -43,10 +43,6 @@
     margin: 10px;
 	}
 
-  #lang-show {
-    color: white;
-  }
-
 </style>
 
 <header>

@@ -9,8 +9,7 @@
     font-family: inherit;
   }
 
-  button,
-  a {
+  button {
     border: 1px solid #622569;
     background: #622569;
     padding: 0.5rem 1rem;
@@ -26,9 +25,7 @@
   }
 
   button:hover,
-  button:active,
-  a:hover,
-  a:active {
+  button:active {
     background: #6b5b95;
     border-color: #6b5b95;
     box-shadow: 1px 1px 8px rgba(77, 51, 51, 0.26);

@@ -4,6 +4,7 @@
 
 <style>
   .main-cont {
+    font-family: inherit;
     display: flex;
     justify-content: space-around;
     color: gray;

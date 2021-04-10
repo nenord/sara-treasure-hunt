@@ -1,6 +1,6 @@
 # Sara's treasure hunt
 
-## A single page app built in Svelte. 
+### A single page app built in Svelte
 
 This is a silly family game. Click ‘How to play’ on the start page to see instructions.
 

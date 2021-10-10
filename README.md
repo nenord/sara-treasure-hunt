@@ -6,8 +6,4 @@ This is a silly family game. Click ‘How to play’ on the start page to see in
 
 Deployed as a static app using Dokku PaaS, running on Google Cloud VM.
 
-<<<<<<< HEAD
-See it in action: https://sara-treasure-hunt.herokuapp.com/index.html
-=======
-See it in action: http://hunt.nenoapps.tk/
->>>>>>> c189030a0b59191aca49b2eef0097f53fd08f826
+See it in action: https://sara-treasure-hunt.herokuapp.com **Note:** it may take 10-15 seconds to lad first time, that is normal. Heroku free apps go to sleep after 30 minutes of inactivity.

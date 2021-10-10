@@ -6,4 +6,4 @@ This is a silly family game build for my daughter. Click ‘How to play’ on th
 
 Deployed as a statis app using Dokku running on Google Cloud VM.
 
-See it in action: http://hunt.nenoapps.tk/
+See it in action: https://sara-treasure-hunt.herokuapp.com/index.html

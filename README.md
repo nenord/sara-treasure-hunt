@@ -1,9 +1,13 @@
 # Sara's treasure hunt
 
-## A single page app built in Svelte. 
+### A single page app built in Svelte
 
-This is a silly family game build for my daughter. Click ‘How to play’ on the start page to see instructions.
+This is a silly family game. Click ‘How to play’ on the start page to see instructions.
 
-Deployed as a statis app using Dokku running on Google Cloud VM.
+Deployed as a static app using Dokku PaaS, running on Google Cloud VM.
 
+<<<<<<< HEAD
 See it in action: https://sara-treasure-hunt.herokuapp.com/index.html
+=======
+See it in action: http://hunt.nenoapps.tk/
+>>>>>>> c189030a0b59191aca49b2eef0097f53fd08f826
